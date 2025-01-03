@@ -25,21 +25,21 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-100 p-6">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+      <div className="max-w-7xl w-full mx-auto px-4">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center sm:text-4xl lg:text-5xl">
           User List
         </h1>
-        <div className="overflow-x-auto fl bg-white shadow-md rounded-lg">
+        <div className="overflow-x-auto bg-white shadow-md rounded-lg">
           <table className="min-w-full table-auto border-collapse border border-gray-200">
             <thead>
               <tr className="bg-gray-100">
-                <th className="border border-gray-200 px-4 py-2 text-left text-gray-700 font-semibold">
+                <th className="border border-gray-200 px-4 py-2 text-left text-gray-700 font-semibold text-sm sm:text-base">
                   Name
                 </th>
-                <th className="border border-gray-200 px-4 py-2 text-left text-gray-700 font-semibold">
+                <th className="border border-gray-200 px-4 py-2 text-left text-gray-700 font-semibold text-sm sm:text-base">
                   Email
                 </th>
-                <th className="border border-gray-200 px-4 py-2 text-left text-gray-700 font-semibold">
+                <th className="border border-gray-200 px-4 py-2 text-left text-gray-700 font-semibold text-sm sm:text-base">
                   Actions
                 </th>
               </tr>
@@ -52,10 +52,10 @@ const Home: React.FC = () => {
                     index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
                   } hover:bg-gray-100 transition-colors`}
                 >
-                  <td className="border border-gray-200 px-4 py-2">
+                  <td className="border border-gray-200 px-4 py-2 text-sm sm:text-base">
                     {user.name}
                   </td>
-                  <td className="border border-gray-200 px-4 py-2">
+                  <td className="border border-gray-200 px-4 py-2 text-sm sm:text-base">
                     {user.email}
                   </td>
                   <td className="border border-gray-200 px-4 py-2">
@@ -71,12 +71,25 @@ const Home: React.FC = () => {
             </tbody>
           </table>
         </div>
+
+        <div className="text-center mt-9">
+          <a
+            href="https://github.com/Alagbami/nolimitbuzz_frontend"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline text-sm sm:text-base"
+          >
+            Visit my GitHub for more details on the README
+          </a>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Home;
+
+
 
 
 

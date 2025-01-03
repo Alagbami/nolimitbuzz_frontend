@@ -34,16 +34,18 @@ const UserDetailsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-4xl mx-auto px-4">
         <Link
           to="/"
-          className="text-blue-600 hover:underline inline-block mb-4"
+          className="text-blue-600 hover:underline inline-block mb-4 text-sm sm:text-base"
         >
           Back to Home
         </Link>
         <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">{user.name}</h1>
-          <div className="text-gray-600 space-y-2">
+          <h1 className="text-3xl font-bold text-gray-800 mb-4 sm:text-4xl lg:text-5xl">
+            {user.name}
+          </h1>
+          <div className="text-gray-600 space-y-2 text-sm sm:text-base">
             <p>
               <span className="font-semibold">Email:</span> {user.email}
             </p>
@@ -73,6 +75,5 @@ const UserDetailsPage: React.FC = () => {
 };
 
 export default UserDetailsPage;
-
 
 
