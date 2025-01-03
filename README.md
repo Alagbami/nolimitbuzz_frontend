@@ -31,11 +31,13 @@ A simple React application built with Vite, showcasing user management functiona
 ```plaintext  
 src/  
 │  
-├── components/  
-│   └── Home.tsx       # Home page component  
-│   └── UserDetailsPage.tsx  # User details component  
-├── types/  
-│   └── index.d.ts     # TypeScript type definitions  
+├── pages/  
+│   └── Home.tsx       # Home page   
+│   └── UserDetailsPage.tsx  # User details id page
+│--- components/  
+│   └── LoadingSpinner.tsx  # Loading spinner component
+|
+├── types.ts           # Type definitions 
 ├── App.tsx            # Main application file  
 ├── main.tsx           # Application entry point  
 └── index.css          # Global styles  
