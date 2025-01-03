@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { User } from '../types';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const Home: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -16,32 +17,23 @@ const Home: React.FC = () => {
   }, []);
 
   if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-100 text-lg text-gray-700">
-        Loading...
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-100 p-6">
-      <div className="max-w-7xl w-full mx-auto px-4">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center sm:text-4xl lg:text-5xl">
+    <div className="min-h-screen flex justify-center items-center bg-gradient-to-r from-indigo-100 to-blue-200 p-6">
+      <div className="max-w-7xl w-full mx-auto px-6 sm:px-8 lg:px-10">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-8 text-center">
           User List
         </h1>
-        <div className="overflow-x-auto bg-white shadow-md rounded-lg">
-          <table className="min-w-full table-auto border-collapse border border-gray-200">
-            <thead>
-              <tr className="bg-gray-100">
-                <th className="border border-gray-200 px-4 py-2 text-left text-gray-700 font-semibold text-sm sm:text-base">
-                  Name
-                </th>
-                <th className="border border-gray-200 px-4 py-2 text-left text-gray-700 font-semibold text-sm sm:text-base">
-                  Email
-                </th>
-                <th className="border border-gray-200 px-4 py-2 text-left text-gray-700 font-semibold text-sm sm:text-base">
-                  Actions
-                </th>
+
+        <div className="overflow-x-auto bg-white shadow-xl rounded-lg p-6">
+          <table className="min-w-full table-auto border-collapse border border-gray-200 rounded-lg">
+            <thead className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+              <tr>
+                <th className="border border-gray-200 px-6 py-3 text-left text-base font-medium">Name</th>
+                <th className="border border-gray-200 px-6 py-3 text-left text-base font-medium">Email</th>
+                <th className="border border-gray-200 px-6 py-3 text-left text-base font-medium">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -50,18 +42,14 @@ const Home: React.FC = () => {
                   key={user.id}
                   className={`${
                     index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
-                  } hover:bg-gray-100 transition-colors`}
+                  } hover:bg-blue-100 transition-all rounded-lg shadow-sm`}
                 >
-                  <td className="border border-gray-200 px-4 py-2 text-sm sm:text-base">
-                    {user.name}
-                  </td>
-                  <td className="border border-gray-200 px-4 py-2 text-sm sm:text-base">
-                    {user.email}
-                  </td>
-                  <td className="border border-gray-200 px-4 py-2">
+                  <td className="border border-gray-200 px-6 py-4 text-sm sm:text-base">{user.name}</td>
+                  <td className="border border-gray-200 px-6 py-4 text-sm sm:text-base">{user.email}</td>
+                  <td className="border border-gray-200 px-6 py-4">
                     <Link
                       to={`/user/${user.id}`}
-                      className="inline-block px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700 transition-colors"
+                      className="inline-block px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-md hover:from-blue-600 hover:to-indigo-700 transition-all"
                     >
                       View Details
                     </Link>
@@ -72,7 +60,7 @@ const Home: React.FC = () => {
           </table>
         </div>
 
-        <div className="text-center mt-9">
+        <div className="text-center mt-12">
           <a
             href="https://github.com/Alagbami/nolimitbuzz_frontend"
             target="_blank"
@@ -88,8 +76,5 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-
-
-
 
 

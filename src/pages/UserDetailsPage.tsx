@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { User } from '../types';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const UserDetailsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -17,35 +18,31 @@ const UserDetailsPage: React.FC = () => {
   }, [id]);
 
   if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-100 text-lg text-gray-700">
-        Loading...
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (!user) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-100 text-lg text-red-500">
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-red-500 to-red-600 text-lg text-white font-semibold">
         User not found.
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-4xl mx-auto px-4">
+    <div className="min-h-screen bg-gradient-to-r from-indigo-100 to-blue-200 p-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           to="/"
-          className="text-blue-600 hover:underline inline-block mb-4 text-sm sm:text-base"
+          className="text-blue-600 hover:underline inline-block mb-6 text-sm sm:text-base font-medium"
         >
-          Back to Home
+          &#8592; Back to Home
         </Link>
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4 sm:text-4xl lg:text-5xl">
+        <div className="bg-white p-8 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-6">
             {user.name}
           </h1>
-          <div className="text-gray-600 space-y-2 text-sm sm:text-base">
+          <div className="text-gray-800 space-y-4 text-lg sm:text-xl">
             <p>
               <span className="font-semibold">Email:</span> {user.email}
             </p>
@@ -75,5 +72,3 @@ const UserDetailsPage: React.FC = () => {
 };
 
 export default UserDetailsPage;
-
-
